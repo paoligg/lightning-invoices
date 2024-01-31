@@ -10,7 +10,17 @@ Lightning Invoice Generator is a React-based application designed for efficient 
 - **Invoice List**: Easily view a list of all invoices, complete with detailed information.
 - **Responsive Design**: Accessible on various devices, ensuring functionality and ease of use.
 
+![Invoice Form Screenshot](/public/app.png)
+
 ## Usage
+
+
+Replace the admin.macaroon Path in /src/components/InvoiceList.tsx
+Add your LND_API_KEY and LND_API_URL in /src/components/InvoiceForm.tsx 
+
+```npm install ```
+
+```npm start``` 
 
 Open `http://localhost:3000` in your web browser to use the Lightning Invoice Generator.
 
@@ -27,7 +37,7 @@ Open `http://localhost:3000` in your web browser to use the Lightning Invoice Ge
 ## Technologies Used
 
 - **React**
-- **Axios** for API interactions
+- **Axios** for API interactions to your node
 - **CSS** for styling
 
 ## Contributing
