@@ -1,26 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import InvoiceList from './components/InvoiceList';
+import InvoiceForm from './components/InvoiceForm';
+import './App.css'; 
 
-function App() {
+const App: React.FC = () => {
+  const [showForm, setShowForm] = useState(false);
+
+  const handleInvoiceCreated = () => {
+    setShowForm(false);
+  };
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h1>Lightning Invoice Generator</h1>
+        <button onClick={() => setShowForm(!showForm)}>
+          {showForm ? 'Hide Form' : 'Create Invoice'}
+        </button>
+        {showForm && <InvoiceForm onInvoiceCreated={handleInvoiceCreated} />}
+        <InvoiceList />
       </header>
     </div>
   );
-}
+};
 
 export default App;
