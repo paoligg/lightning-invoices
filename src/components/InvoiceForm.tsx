@@ -11,7 +11,23 @@ const InvoiceForm: React.FC<InvoiceFormProps> = ({ onInvoiceCreated }) => {
   const [description, setDescription] = useState('');
 
   const handleCreateInvoice = async () => {
-    // ... existing code ...
+     try {
+      const apiUrl = 'YOUR_LND_API_URL/invoices';
+      const apiKey = 'YOUR_API_KEY';
+
+      await axios.post(
+        apiUrl,
+        { value: amount, memo: description },
+        { headers: { 'Grpc-Metadata-Macaroon': apiKey } }
+      );
+
+      setAmount(0);
+      setDescription('');
+
+      onInvoiceCreated();
+    } catch (error) {
+      console.error('Error creating invoice:', error);
+    }
   };
 
   return (
